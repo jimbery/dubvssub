@@ -1,0 +1,19 @@
+{
+  "name": "dubvsub",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jimbery/dubvsub.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jimbery/dubvsub/issues"
+  },
+  "homepage": "https://github.com/jimbery/dubvsub#readme"
+}
