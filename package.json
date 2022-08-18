@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "pretest": "npx eslint .",
     "test": "jest"
   },
   "repository": {
