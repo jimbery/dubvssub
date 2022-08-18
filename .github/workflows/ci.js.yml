@@ -1,0 +1,16 @@
+name: Node.js CI
+
+on:
+  push: 
+    branches: ['main']
+  pull_requests:
+    branches: ['main']  
+
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm ci
+      - run: npm test
