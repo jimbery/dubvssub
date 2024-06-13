@@ -1,0 +1,12 @@
+repos:
+    - repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v3.4.0
+      hooks:
+          - id: eslint
+            name: eslint
+            entry: eslint
+            files: '\.tsx?$'
+            types: [file]
+            language: node
+            args: ['--fix']
+            exclude: 'node_modules'
