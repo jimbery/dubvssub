@@ -13,7 +13,6 @@ export default async function (
         }
         return data.json()
     } catch (err) {
-        console.log(err)
         return err as Error
     }
 }

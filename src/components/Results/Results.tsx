@@ -1,6 +1,6 @@
 // Results.tsx
 import React from 'react'
-import { GetSearchAnimeOutput } from '../routes/GetSearchAnime'
+import { GetSearchAnimeOutput } from '../../routes/GetSearchAnime'
 
 interface ResultsProps {
     searchResults: GetSearchAnimeOutput['Data']
@@ -13,9 +13,6 @@ const Results: React.FC<ResultsProps> = ({
     hasSearched,
     error,
 }) => {
-    console.log(searchResults)
-    console.log(error)
-
     return (
         <div className="results">
             {hasSearched ? (

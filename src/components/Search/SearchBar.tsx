@@ -1,13 +1,13 @@
 // Search.tsx
 import React, { useState } from 'react'
 import './SearchBar.css'
-import './Results.css'
+import '../Results/Results.css'
 import GetSearchAnime, {
     GetSearchAnimeOutput,
 } from '../../routes/GetSearchAnime'
 import logoBanner from './Logo.bmp'
 import icon from './icon3.bmp'
-import Results from './../Results' // Import the Results component
+import Results from '../Results/Results' // Import the Results component
 
 export const Search = () => {
     const [searchInput, setSearchInput] = useState('')
@@ -26,19 +26,16 @@ export const Search = () => {
         try {
             const data = await GetSearchAnime(searchInput)
             if (data instanceof Error || !data.Data) {
-                console.log('Received an error or no data:', data) // Log the received data
                 setError(data instanceof Error ? data.message : 'No data found')
                 return
             } else {
                 setError('')
-
                 setSearchResults(data.Data)
             }
             setIsTop(true)
         } catch (err) {
             // Catch any unexpected errors in the request
             setIsTop(true)
-            console.error('Unexpected error:', err)
             setError('An unexpected error occurred.')
         }
     }
