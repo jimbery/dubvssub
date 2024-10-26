@@ -1,0 +1,69 @@
+/* SearchBar.css */
+
+.results {
+    width: 100%;
+    margin-top: 1rem;
+    padding-left: 30px; /* Indent everything by 30px */
+    padding-right: 40px;
+    border-bottom: 1px solid #eee;
+}
+
+.resultItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem; /* Space between image and text */
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+    max-height: 100px;
+    min-height: 100px;
+}
+
+.resultImg {
+    width: 75px; /* Adjust as needed */
+    height: 75px;
+    object-fit: cover;
+    border-radius: 4px;
+    max-height: 75px;
+    min-width: 75px;
+}
+
+.resultText {
+    display: flex;
+    flex-direction: column;
+}
+
+.resultTitle {
+    font-size: 2rem;
+    color: #b41818;
+    margin: 0;
+}
+
+.resultDesc {
+    font-size: 1.5rem;
+    color: #646464;
+    margin: 0.5rem 0 1rem 0;
+}
+
+.resultItem:last-child .resultDesc {
+    border-bottom: none;
+}
+
+.error {
+    text-align: center;
+    font-size: 2rem;
+    color: #888;
+    padding-top: 10px;
+}
+
+.single-line {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.multi-line {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}

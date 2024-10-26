@@ -1,57 +1,80 @@
-import React, { useEffect, useState } from 'react'
+// Search.tsx
+import React, { useState } from 'react'
 import './SearchBar.css'
+import './Results.css'
 import GetSearchAnime, {
     GetSearchAnimeOutput,
 } from '../../routes/GetSearchAnime'
+import logoBanner from './Logo.bmp'
+import icon from './icon3.bmp'
+import Results from './../Results' // Import the Results component
 
 export const Search = () => {
     const [searchInput, setSearchInput] = useState('')
     const [searchResults, setSearchResults] = useState<
         GetSearchAnimeOutput['Data']
     >([])
-
-    useEffect(() => {}, [searchInput])
+    const [error, setError] = useState('')
+    const [isTop, setIsTop] = useState(false)
+    const [hasSearched, setHasSearched] = useState(false) // New state variable
 
     const search = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        const data = await GetSearchAnime(searchInput)
-        if (data instanceof Error) {
-            console.error('Error fetching data:', data)
-            return
-        }
+        setHasSearched(true) // Mark that a search has been attempted
+        setIsTop(true)
 
         try {
             const data = await GetSearchAnime(searchInput)
-            if (data instanceof Error) return data
-            console.log(data)
-            setSearchResults(data.Data)
+            if (data instanceof Error || !data.Data) {
+                console.log('Received an error or no data:', data) // Log the received data
+                setError(data instanceof Error ? data.message : 'No data found')
+                return
+            } else {
+                setError('')
+
+                setSearchResults(data.Data)
+            }
+            setIsTop(true)
         } catch (err) {
-            return err
+            // Catch any unexpected errors in the request
+            setIsTop(true)
+            console.error('Unexpected error:', err)
+            setError('An unexpected error occurred.')
         }
     }
 
     return (
         <div className="input-wrapper">
-            <form onSubmit={search}>
-                <input
-                    placeholder="Enter Post Title..."
-                    onChange={(e) => setSearchInput(e.target.value)}
-                    value={searchInput}
-                />
-                <button type="submit" data-testid="searchSubmitButton">
-                    Search
-                </button>
-            </form>
-            <div className="results">
-                results:
-                {searchResults && searchResults.length > 0 ? (
-                    searchResults.map((result, index) => (
-                        <div key={index}>{JSON.stringify(result.Title)}\n</div>
-                    ))
-                ) : (
-                    <div>No results found</div>
-                )}
+            <div className={`centered-container ${isTop ? 'top' : ''}`}>
+                <div className="logo">
+                    <img
+                        src={isTop ? icon : logoBanner}
+                        alt="Logo"
+                        className={isTop ? 'icon' : 'banner'}
+                    />
+                </div>
+
+                {/* Search Bar Section */}
+                <form onSubmit={search} role="search" className="search-bar">
+                    <label htmlFor="search">Search</label>
+                    <input
+                        id="search"
+                        type="search"
+                        placeholder="Enter Post Title..."
+                        onChange={(e) => setSearchInput(e.target.value)}
+                        value={searchInput}
+                        required
+                    />
+                    <button type="submit">Search</button>
+                </form>
             </div>
+
+            {/* Results Section */}
+            <Results
+                searchResults={searchResults}
+                hasSearched={hasSearched}
+                error={error}
+            />
         </div>
     )
 }

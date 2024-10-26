@@ -5,11 +5,15 @@ export default async function (
     const searchQuery = q.replace(/ /g, '&nbsp;')
 
     try {
-        const data = await (
-            await fetch(`http://localhost:3333/search?q=${searchQuery}`)
-        ).json()
-        return data
+        const data = await await fetch(
+            `http://localhost:3333/search?q=${searchQuery}`,
+        )
+        if (!data.ok) {
+            throw new Error(JSON.stringify(await data.text()))
+        }
+        return data.json()
     } catch (err) {
+        console.log(err)
         return err as Error
     }
 }
