@@ -13,10 +13,8 @@ export default async function (
 }
 
 export type GetSearchAnimeOutput = {
- 
-        Title: string
-        Synopsis: string
-        MalID: number
-        Image: string
-    }
-
+    Title: string
+    Synopsis: string
+    MalID: number
+    Image: string
+}
