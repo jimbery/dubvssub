@@ -3,28 +3,17 @@ import './SearchBar.css'
 import logoBanner from './Logo.bmp'
 import icon from './icon3.bmp'
 import { useParams } from 'react-router'
-import GetSearchAnime, {
-    GetSearchAnimeOutput,
-} from '../../routes/GetSearchAnime'
 
 interface SearchProps {
-    setIsTop: boolean // Prop type for setIsTop
+    setIsTop: boolean
 }
 
 export const Search: React.FC<SearchProps> = ({ setIsTop }) => {
     const { id } = useParams() // Get the anime ID from the URL
     const [searchInput, setSearchInput] = useState('')
 
-    const [loading, setLoading] = useState(false)
-    const [hasSearched, setHasSearched] = useState(false)
-    const [error, setError] = useState('')
-    const [searchResults, setSearchResults] = useState<
-        GetSearchAnimeOutput['Data']
-    >([])
-
     const search = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        setHasSearched(true)
         // Redirect to the search results page
         window.location.href = `/search?q=${searchInput}`
     }
