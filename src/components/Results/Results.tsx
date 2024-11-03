@@ -3,20 +3,23 @@ import React from 'react'
 import { GetSearchAnimeOutput } from '../../routes/GetSearchAnime'
 
 interface ResultsProps {
-    searchResults: GetSearchAnimeOutput['Data']
+    searchResults: GetSearchAnimeOutput['Data'] | undefined
     hasSearched: boolean
+    loading: boolean
     error?: string
 }
 
 const Results: React.FC<ResultsProps> = ({
     searchResults,
     hasSearched,
+    loading,
     error,
 }) => {
     return (
         <div className="results">
-            {hasSearched ? (
-                // Check if there's an error first
+            {loading || !searchResults ? (
+                <div>Loading...</div> // Show loading message while fetching
+            ) : hasSearched ? (
                 error ? (
                     <div className="error">{error}</div> // Show error message with proper styling
                 ) : searchResults.length > 0 ? (
@@ -30,7 +33,9 @@ const Results: React.FC<ResultsProps> = ({
                             />
                             <div className="resultText">
                                 <div className="resultTitle single-line">
-                                    {result.Title}
+                                    <a href={`/anime/${result.MalID}`}>
+                                        {result.Title}
+                                    </a>
                                 </div>
                                 <div className="resultDesc multi-line">
                                     {result.Synopsis}
@@ -39,8 +44,10 @@ const Results: React.FC<ResultsProps> = ({
                         </div>
                     ))
                 ) : (
-                    // Message when no results are found
-                    <div className="error">No results found.</div> // Use error styling
+                    <>
+                        <div>Loading</div>
+                        <div className="error">No results found.</div>
+                    </>
                 )
             ) : null}
         </div>

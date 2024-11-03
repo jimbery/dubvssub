@@ -16,7 +16,7 @@ input:focus {
 
 html {
     box-sizing: border-box;
-    height: 100%;
+    /* height: 100%; */
     font-size: 10px;
 }
 *,
@@ -47,8 +47,8 @@ input[type='search'] {
     padding: 0 1.6rem;
     border-radius: var(--rad);
     appearance: none;
-    transition: all var(--dur) var(--bez);
-    transition-property: width, border-radius;
+    /* transition: all var(--dur) var(--bez); */
+    /* transition-property: width, border-radius; */
     z-index: 1;
     position: relative;
 }
@@ -88,7 +88,7 @@ label {
     justify-content: center;
     align-items: center; /* Center vertically */
     min-height: 110vh;
-    transition: all 0.7s cubic-bezier(0.25, 0.1, 0.25, 1); /* Custom ease function */
+    /* transition: all 0.7s cubic-bezier(0.25, 0.1, 0.25, 1); Custom ease function */
     margin-top: -10vh; /* Create space at the top */
 }
 
