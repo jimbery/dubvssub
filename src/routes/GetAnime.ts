@@ -17,4 +17,15 @@ export type GetSearchAnimeOutput = {
     Synopsis: string
     MalID: number
     Image: string
+    Year: number
+    Episodes: number
+    Rating: string
+    Trailer: string
+    Genres: {
+        Name: string
+    }[]
+    Streaming: {
+        Name: string
+        URL: string
+    }[]
 }

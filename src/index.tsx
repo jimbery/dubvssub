@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import './index.css'
 import reportWebVitals from './reportWebVitals'
-import { Search } from './components/Search/SearchBar'
 import { Anime } from './components/Anime/Anime'
+import Home from './pages/home'
+import SearchPage from './pages/search'
 
 // Set the document title
 document.title = 'DubVsSub'
@@ -19,8 +20,10 @@ if (rootElement) {
         <React.StrictMode>
             <Router>
                 <Routes>
-                    <Route path="/" element={<Search />} />
+                    <Route path="/" element={<Home />} />
+                    <Route path="/search" element={<SearchPage />} />
                     <Route path="/anime/:id" element={<Anime />} />
+                    {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
                 </Routes>
             </Router>
         </React.StrictMode>,

@@ -1664,12 +1664,10 @@
                                                 'Failed to load stylesheet: ' +
                                                     e,
                                             )
-                                        return t
-                                            .text()
-                                            .then((t) => ({
-                                                href: e,
-                                                content: t,
-                                            }))
+                                        return t.text().then((t) => ({
+                                            href: e,
+                                            content: t,
+                                        }))
                                     })
                                     .catch((e) => {
                                         throw u(e)
