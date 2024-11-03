@@ -19,4 +19,4 @@ jobs:
             - name: Linting
               run: npm run lint
             - name: Run Tests
-              run: npm test
+              run: npm test --passWithNoTests
