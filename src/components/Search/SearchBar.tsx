@@ -33,6 +33,7 @@ export const Search: React.FC<SearchProps> = ({ setIsTop }) => {
                             src={setIsTop ? icon : logoBanner}
                             alt="Logo"
                             className={setIsTop ? 'icon' : 'banner'}
+                            data-testid="dubVsSubBannerIcon"
                         />
                     </a>
                 </div>
@@ -42,13 +43,16 @@ export const Search: React.FC<SearchProps> = ({ setIsTop }) => {
                     <label htmlFor="search">Search</label>
                     <input
                         id="search"
+                        data-testid="search"
                         type="search"
-                        placeholder="Enter Post Title..."
+                        placeholder="Search for anime..."
                         onChange={(e) => setSearchInput(e.target.value)}
                         value={searchInput}
                         required
                     />
-                    <button type="submit">Search</button>
+                    <button type="submit" data-testid="searchButton">
+                        Search
+                    </button>
                 </form>
             </div>
         </div>

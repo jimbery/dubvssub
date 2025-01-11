@@ -32,7 +32,7 @@ describe('Search Component', () => {
         expect(screen.getByRole('search')).toBeInTheDocument()
         expect(screen.getByLabelText(/search/i)).toBeInTheDocument()
         expect(
-            screen.getByPlaceholderText('Enter Post Title...'),
+            screen.getByTestId('search'),
         ).toBeInTheDocument()
         expect(
             screen.getByRole('button', { name: /search/i }),
@@ -58,7 +58,8 @@ describe('Search Component', () => {
             </Router>,
         )
 
-        const input = screen.getByPlaceholderText('Enter Post Title...')
+        const input = screen.getByTestId('search')
+
 
         fireEvent.change(input, { target: { value: 'Test Search' } })
         expect(input).toHaveValue('Test Search')
@@ -80,7 +81,7 @@ describe('Search Component', () => {
             </Router>,
         )
 
-        const input = screen.getByPlaceholderText('Enter Post Title...')
+        const input = screen.getByTestId('search')
         const form = screen.getByRole('search')
 
         fireEvent.change(input, { target: { value: 'Test Query' } })
