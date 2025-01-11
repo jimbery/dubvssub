@@ -1,9 +1,7 @@
-/* SearchBar.css */
-
 .results {
     width: 100%;
     margin-top: 1rem;
-    padding-left: 30px; /* Indent everything by 30px */
+    padding-left: 30px;
     padding-right: 40px;
     border-bottom: 1px solid #eee;
 }
@@ -11,7 +9,7 @@
 .resultItem {
     display: flex;
     align-items: flex-start;
-    gap: 1rem; /* Space between image and text */
+    gap: 1rem;
     padding: 0.5rem 0;
     border-bottom: 1px solid #eee;
     max-height: 100px;
@@ -19,7 +17,7 @@
 }
 
 .resultImg {
-    width: 75px; /* Adjust as needed */
+    width: 75px;
     height: 75px;
     object-fit: cover;
     border-radius: 4px;

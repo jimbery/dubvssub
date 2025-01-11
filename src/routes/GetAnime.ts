@@ -1,18 +1,18 @@
-export default async function (
-    id: number,
-): Promise<GetSearchAnimeOutput | Error> {
+export default async function (id: number): Promise<GetAnimeOutput | Error> {
+    const baseUrl = process.env.REACT_APP_BASE_URL
+
     try {
-        const data = await fetch(`http://localhost:3333/anime/${id}`)
+        const data = await fetch(`${baseUrl}/anime/${id}`)
         if (!data.ok) {
             throw new Error(JSON.stringify(await data.text()))
         }
-        return data.json()
+        return await data.json()
     } catch (err) {
         return err as Error
     }
 }
 
-export type GetSearchAnimeOutput = {
+export type GetAnimeOutput = {
     Title: string
     Synopsis: string
     MalID: number

@@ -19,9 +19,10 @@ const SearchPage: React.FC = () => {
         try {
             const res: GetSearchAnimeOutput | Error =
                 await GetSearchAnime(searchTerm)
-            console.log(res)
-            if (res instanceof Error) throw new Error('')
-            if (!res.Data) throw new Error('')
+
+            if (res instanceof Error)
+                throw new Error('error getting search data')
+            if (!res.Data) throw new Error('no search results returned')
             setResults(res.Data)
         } catch (err) {
             setError('Error fetching results')
@@ -37,11 +38,10 @@ const SearchPage: React.FC = () => {
 
     useEffect(() => {
         const searchTerm = getQueryParameter('q')
-        console.log(searchTerm) // Get the search term from the query string
         if (searchTerm) {
-            handleSearch(searchTerm) // Call handleSearch with the search term
+            handleSearch(searchTerm)
         }
-    }, [location.search]) // Run effect when location.search changes
+    }, [location.search])
 
     return (
         <>

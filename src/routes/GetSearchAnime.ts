@@ -1,13 +1,13 @@
 export default async function (
     q: string,
 ): Promise<GetSearchAnimeOutput | Error> {
+    const baseUrl = process.env.REACT_APP_BASE_URL
+
     q.toLocaleLowerCase
     const searchQuery = q.replace(/ /g, '&nbsp;')
 
     try {
-        const data = await await fetch(
-            `http://localhost:3333/search?q=${searchQuery}`,
-        )
+        const data = await fetch(`${baseUrl}/search?q=${searchQuery}`)
         if (!data.ok) {
             throw new Error(JSON.stringify(await data.text()))
         }
