@@ -3,7 +3,7 @@ export default async function (id: number): Promise<GetAnimeOutput | Error> {
 
     console.log(baseUrl)
     try {
-        const data = await fetch(`${baseUrl}/anime/${id}`)
+        const data = await fetch(`${baseUrl}/api/anime/${id}`)
         if (!data.ok) {
             throw new Error(JSON.stringify(await data.text()))
         }

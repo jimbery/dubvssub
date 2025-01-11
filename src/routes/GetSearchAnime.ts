@@ -9,7 +9,7 @@ export default async function (
     const searchQuery = q.replace(/ /g, '&nbsp;')
 
     try {
-        const data = await fetch(`${baseUrl}/search?q=${searchQuery}`)
+        const data = await fetch(`${baseUrl}/api/search?q=${searchQuery}`)
         if (!data.ok) {
             throw new Error(JSON.stringify(await data.text()))
         }
