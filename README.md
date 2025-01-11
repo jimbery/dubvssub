@@ -10,13 +10,13 @@ https://hisoka-ldubl.ondigitalocean.app/
 - [Usage](#usage)
 - [License](#license)
 
-
 ## Installation
 
 To install and run this project locally:
 
 1. **Clone the repository:**
- ```bash
+
+```bash
 git clone https://github.com/jimbery/dubvsub.git
 ```
 
@@ -39,7 +39,6 @@ npm start
 ```
 
 The application will run in development mode. Open http://localhost:3000 to view it in the browser.
-
 
 ## License
 
