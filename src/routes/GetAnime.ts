@@ -1,6 +1,7 @@
 export default async function (id: number): Promise<GetAnimeOutput | Error> {
     const baseUrl = process.env.REACT_APP_BASE_URL
 
+    console.log(baseUrl)
     try {
         const data = await fetch(`${baseUrl}/anime/${id}`)
         if (!data.ok) {
