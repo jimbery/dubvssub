@@ -25,14 +25,14 @@ html {
     box-sizing: inherit;
 }
 
-/* Keep existing form styles */
 form {
     position: relative;
     width: 30rem;
     background: var(--color-brand);
     border-radius: var(--rad);
-    margin-top: 0; /* Reset margin for centering */
+    margin-top: 0;
 }
+
 input,
 button {
     height: var(--height);
@@ -80,28 +80,25 @@ label {
     overflow: hidden;
 }
 
-/* Centering container for the form */
-/* Centered container for the form */
 .centered-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; /* Center vertically */
+    align-items: center;
     min-height: 110vh;
     /* transition: all 0.7s cubic-bezier(0.25, 0.1, 0.25, 1); Custom ease function */
-    margin-top: -10vh; /* Create space at the top */
+    margin-top: -10vh;
 }
 
-/* Add a modifier class to move the form to the top */
 .centered-container.top {
-    align-items: flex-start; /* Align to top */
+    align-items: flex-start;
     flex-direction: row;
     justify-content: space-between;
     padding-top: 2rem;
     padding-left: 2rem;
     padding-right: 2rem;
     min-height: 8vh;
-    margin-top: 0vh; /* Create space at the top */
+    margin-top: 0vh;
 }
 
 .banner {

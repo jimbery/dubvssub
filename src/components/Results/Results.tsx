@@ -1,4 +1,3 @@
-// Results.tsx
 import React from 'react'
 import { GetSearchAnimeOutput } from '../../routes/GetSearchAnime'
 
@@ -18,10 +17,12 @@ const Results: React.FC<ResultsProps> = ({
     return (
         <div className="results">
             {loading || !searchResults ? (
-                <div>Loading...</div> // Show loading message while fetching
+                // Show loading message while fetching
+                <div>Loading...</div>
             ) : hasSearched ? (
                 error ? (
-                    <div className="error">{error}</div> // Show error message with proper styling
+                    // Show error message on error
+                    <div className="error">{error}</div>
                 ) : searchResults.length > 0 ? (
                     // Show results if there are any
                     searchResults.map((result, index) => (

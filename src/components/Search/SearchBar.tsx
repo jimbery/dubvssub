@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './SearchBar.css'
-import logoBanner from './Logo.bmp'
-import icon from './icon3.bmp'
+import logoBanner from '../../assets/dubvsubbanner.bmp'
+import icon from '../../assets/dubvsubicon.bmp'
 import { useParams } from 'react-router'
 
 interface SearchProps {
@@ -9,7 +9,8 @@ interface SearchProps {
 }
 
 export const Search: React.FC<SearchProps> = ({ setIsTop }) => {
-    const { id } = useParams() // Get the anime ID from the URL
+    // Get the anime ID from the URL
+    const { id } = useParams()
     const [searchInput, setSearchInput] = useState('')
 
     const search = async (e: React.FormEvent<HTMLFormElement>) => {

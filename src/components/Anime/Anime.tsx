@@ -1,35 +1,31 @@
 import React, { useState, useEffect } from 'react'
 import './Anime.css'
 import '../Results/Results.css'
-import GetAnime, { GetSearchAnimeOutput } from '../../routes/GetAnime' // Import your GetAnime function
+import GetAnime, { GetAnimeOutput } from '../../routes/GetAnime'
 import { useParams } from 'react-router-dom'
 import { Search } from '../Search/SearchBar'
-import Crunchyroll from './pngegg.png'
-import Netflix from './netflix.png'
+import Crunchyroll from '../../assets/crunchyroll.png'
+import Netflix from '../../assets/netflix.png'
 
 export const Anime = () => {
-    const { id } = useParams<{ id: string }>() // Get the anime ID from the URL
-    const [animeData, setAnimeData] = useState<GetSearchAnimeOutput | null>(
-        null,
-    )
+    const { id } = useParams<{ id: string }>()
+    const [animeData, setAnimeData] = useState<GetAnimeOutput | null>(null)
     const [error, setError] = useState('')
 
     useEffect(() => {
         if (id) {
-            getAnime(id) // Call getAnime with the dynamic ID
+            getAnime(id)
         }
     }, [id])
 
     const getAnime = async (animeId: string) => {
         try {
-            console.log(Number(animeId))
-            const data = await GetAnime(Number(animeId)) // Pass the anime ID
-            console.log(data)
+            const data = await GetAnime(Number(animeId))
+
             if (data instanceof Error || !data) {
                 setError(data instanceof Error ? data.message : 'No data found')
             } else {
                 setError('')
-                console.log(data.Streaming)
                 setAnimeData(data)
             }
         } catch (err) {
@@ -87,8 +83,8 @@ export const Anime = () => {
                                                 ) {
                                                     return (
                                                         <a
-                                                            key={index} // Provide a unique key for each element
-                                                            href={stream.URL} // Always use the stream's URL
+                                                            key={index}
+                                                            href={stream.URL}
                                                         >
                                                             <img
                                                                 className="streamingLogo"
@@ -97,16 +93,16 @@ export const Anime = () => {
                                                                     'Crunchyroll'
                                                                         ? Crunchyroll
                                                                         : Netflix
-                                                                } // Use Netflix logo for Netflix
+                                                                }
                                                                 alt={
                                                                     stream.Name
-                                                                } // Provide an alt text based on the stream name
+                                                                }
                                                             />
                                                         </a>
                                                     )
                                                 }
 
-                                                return null // Return null for other providers to not render anything
+                                                return null
                                             },
                                         )}
                                     </div>
