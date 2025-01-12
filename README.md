@@ -2,7 +2,7 @@
 
 **Dub vs Sub** is a web application that allows users to vote on their preference for watching anime: dubbed (voice-over in another language) or subtitled (original audio with subtitles).
 [
-https://hisoka-ldubl.ondigitalocean.app/](https://dubvssub.com/)
+https://dubvssub.com/
 
 ## Table of Contents
 
