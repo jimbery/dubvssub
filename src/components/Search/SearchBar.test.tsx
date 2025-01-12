@@ -31,9 +31,7 @@ describe('Search Component', () => {
         // Search bar elements
         expect(screen.getByRole('search')).toBeInTheDocument()
         expect(screen.getByLabelText(/search/i)).toBeInTheDocument()
-        expect(
-            screen.getByTestId('search'),
-        ).toBeInTheDocument()
+        expect(screen.getByTestId('search')).toBeInTheDocument()
         expect(
             screen.getByRole('button', { name: /search/i }),
         ).toBeInTheDocument()
@@ -59,7 +57,6 @@ describe('Search Component', () => {
         )
 
         const input = screen.getByTestId('search')
-
 
         fireEvent.change(input, { target: { value: 'Test Search' } })
         expect(input).toHaveValue('Test Search')
