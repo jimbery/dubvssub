@@ -84,7 +84,7 @@ describe('Search Component', () => {
         fireEvent.change(input, { target: { value: 'Test Query' } })
         fireEvent.submit(form)
 
-        expect(window.location.href).toBe('/search?q=Test Query')
+        expect(window.location.href).toBe('/search?q=Test%20Query')
 
         // Restore original location object
         window.location = originalLocation
