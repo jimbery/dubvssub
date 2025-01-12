@@ -16,7 +16,7 @@ export const Search: React.FC<SearchProps> = ({ setIsTop }) => {
     const search = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         // Redirect to the search results page
-        window.location.href = `/search?q=${searchInput}`
+        window.location.href = `/search?q=${encodeURI(searchInput)}`
     }
 
     useEffect(() => {

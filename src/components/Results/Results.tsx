@@ -26,7 +26,11 @@ const Results: React.FC<ResultsProps> = ({
                 ) : searchResults.length > 0 ? (
                     // Show results if there are any
                     searchResults.map((result, index) => (
-                        <div className="resultItem" key={index}>
+                        <div
+                            className="resultItem"
+                            data-testid="resultItem"
+                            key={index}
+                        >
                             <img
                                 className="resultImg"
                                 src={result.Image}

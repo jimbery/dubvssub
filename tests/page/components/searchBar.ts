@@ -29,6 +29,11 @@ export class SearchBar {
         await expect(this.searchBar).toHaveAttribute('placeholder', placeholder)
     }
 
+    async clickSearchButton() {
+        await expect(this.searchButton).toBeVisible()
+        await this.searchButton.click()
+    }
+
     async logoStateIs(input: 'banner' | 'icon') {
         await expect(this.dubVsSubIcon).toBeVisible()
         await expect(this.dubVsSubIcon).toHaveClass(input)
