@@ -24,4 +24,8 @@ export class HomePage {
     async goto() {
         this.page.goto('')
     }
+
+    async enterTextInSearchBar(searchTerm: string) {
+        await this.searchBar.fill(searchTerm)
+    }
 }
