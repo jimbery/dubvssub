@@ -1,7 +1,8 @@
 import { test, expect } from '@playwright/test'
 import { HomePage } from '../page/home'
 import GetLangClass from '../util/GetLangClass'
-import { SearchBar } from '../page/components/search'
+import { SearchBar } from '../page/components/searchBar'
+import { SearchResult } from '../page/searchResult'
 
 test('Home page loads', async ({ page }) => {
     const home = new HomePage(page)
@@ -72,4 +73,24 @@ test('Type in search bar, clear search', async ({ page }) => {
         'placeholder',
         lang.searchBarPlaceholder,
     )
+})
+
+test('Search for hunter x hunter', async ({ page }) => {
+    const home = new HomePage(page)
+    const searchBar = new SearchBar(page)
+    const searchResult = new SearchResult(page)
+
+    const searchTerm = 'hunter x hunter'
+
+    // GIVEN I am on the home page
+    await home.goto()
+
+    // GIVEN I enter text in the search bar
+    await searchBar.enterTextInSearchBar(searchTerm)
+
+    // WHEN I click the search button
+    await searchBar.clickSearchButton()
+
+    // THEN search page loads
+    await searchResult.pageLoads(searchTerm)
 })
