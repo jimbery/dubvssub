@@ -11,7 +11,6 @@ const SearchPage: React.FC = () => {
 
     const location = useLocation()
 
-    // Update the type according to your expected API response
     const handleSearch = async (searchTerm: string): Promise<void> => {
         setLoading(true)
         setError('')

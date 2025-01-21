@@ -17,14 +17,11 @@ const Results: React.FC<ResultsProps> = ({
     return (
         <div className="results">
             {loading || !searchResults ? (
-                // Show loading message while fetching
                 <div>Loading...</div>
             ) : hasSearched ? (
                 error ? (
-                    // Show error message on error
                     <div className="error">{error}</div>
                 ) : searchResults.length > 0 ? (
-                    // Show results if there are any
                     searchResults.map((result, index) => (
                         <div
                             className="resultItem"

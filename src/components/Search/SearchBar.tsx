@@ -9,13 +9,11 @@ interface SearchProps {
 }
 
 export const Search: React.FC<SearchProps> = ({ setIsTop }) => {
-    // Get the anime ID from the URL
     const { id } = useParams()
     const [searchInput, setSearchInput] = useState('')
 
     const search = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        // Redirect to the search results page
         window.location.href = `/search?q=${encodeURI(searchInput)}`
     }
 
