@@ -50,7 +50,11 @@ export const Search: React.FC<SearchProps> = ({ setIsTop }) => {
                         value={searchInput}
                         required
                     />
-                    <button type="submit" data-testid="searchButton">
+                    <button
+                        type="submit"
+                        className="search-button"
+                        data-testid="searchButton"
+                    >
                         Search
                     </button>
                 </form>

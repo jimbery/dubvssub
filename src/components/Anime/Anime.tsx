@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom'
 import { Search } from '../Search/SearchBar'
 import Crunchyroll from '../../assets/crunchyroll.png'
 import Netflix from '../../assets/netflix.png'
+import DubVsSubVote from '../Vote/Vote'
 
 export const Anime = () => {
     const { id } = useParams<{ id: string }>()
@@ -108,6 +109,11 @@ export const Anime = () => {
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div className="votes">
+                            <DubVsSubVote
+                                malId={animeData.MalID}
+                            ></DubVsSubVote>
                         </div>
                         <div className="trailerSection">
                             <iframe
