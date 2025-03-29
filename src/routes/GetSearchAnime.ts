@@ -3,8 +3,7 @@ export default async function (
 ): Promise<GetSearchAnimeOutput | Error> {
     const baseUrl = process.env.REACT_APP_BASE_URL
 
-    q.toLocaleLowerCase
-    const searchQuery = q.replace(/ /g, '&nbsp;')
+    const searchQuery = q.toLocaleLowerCase().replace(/ /g, '&nbsp;')
 
     try {
         const data = await fetch(`${baseUrl}/api/search?q=${searchQuery}`)
