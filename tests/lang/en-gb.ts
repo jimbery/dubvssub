@@ -1,5 +1,5 @@
 export class enGB {
-    homePageTitle: string = 'DubVsSub'
+    homePageTitle: string = 'Dub Vs Sub'
     searchBarPlaceholder: string = 'Search for anime...'
     searchButton: string = 'Search'
 }
