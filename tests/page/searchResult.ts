@@ -1,5 +1,6 @@
 import { Locator, Page, expect } from '@playwright/test'
 import { GetSearchData } from '../data/search/GetSearchData'
+import { GetSearchAnimeOutput } from '../../src/routes/GetSearchAnime'
 
 export class SearchResult {
     readonly page: Page
@@ -31,5 +32,15 @@ export class SearchResult {
 
     async numberOfResultsLoaded(noOfResults: number) {
         await expect(this.resultItems).toHaveCount(noOfResults)
+    }
+
+    async resultContentCorrect(animeData: GetSearchAnimeOutput['Data']) {
+        const searchList = this.resultItems
+
+        for (let i = 0; i < animeData.length; i++) {
+            expect(searchList[i].Image).toContain(animeData[i].Image)
+            expect(searchList[i].Synopsis).toContain(animeData[i].Synopsis)
+            expect(searchList[i].Title).toContain(animeData[i].Title)
+        }
     }
 }
