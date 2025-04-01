@@ -8,7 +8,7 @@ import Home from './pages/home'
 import SearchPage from './pages/search'
 
 // Set the document title
-document.title = 'DubVsSub'
+document.title = 'Dub vs Sub'
 
 const rootElement = document.getElementById('root')
 
