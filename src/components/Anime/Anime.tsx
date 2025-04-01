@@ -30,7 +30,7 @@ export const Anime = () => {
                 setAnimeData(data)
             }
         } catch (err) {
-            setError('An unexpected error occurred.')
+            setError(`An unexpected error occurred. ${JSON.stringify(err)}`)
         }
     }
 

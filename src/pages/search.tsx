@@ -24,7 +24,7 @@ const SearchPage: React.FC = () => {
             if (!res.Data) throw new Error('no search results returned')
             setResults(res.Data)
         } catch (err) {
-            setError('Error fetching results')
+            setError(`fetching results ${JSON.stringify(err)}`)
         } finally {
             setLoading(false)
         }
