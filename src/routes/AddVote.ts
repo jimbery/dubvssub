@@ -2,15 +2,13 @@ export default async function (
     malID: number,
     vote: 'sub' | 'dub',
 ): Promise<AnimeVoteData | Error> {
-    const baseUrl = process.env.REACT_APP_BASE_URL
+    const baseUrl = import.meta.env.VITE_BASE_URL
 
     try {
         const voteData = {
             mal_id: malID,
             vote_type: vote,
         }
-
-        console.log(voteData)
 
         const data = await fetch(`${baseUrl}/api/add-vote`, {
             method: 'PUT',
@@ -19,8 +17,6 @@ export default async function (
             },
             body: JSON.stringify(voteData),
         })
-
-        console.log(data)
 
         if (!data.ok) {
             throw new Error(JSON.stringify(await data.text()))

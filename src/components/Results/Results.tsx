@@ -47,7 +47,6 @@ const Results: React.FC<ResultsProps> = ({
                     ))
                 ) : (
                     <>
-                        <div>Loading</div>
                         <div className="error">No results found.</div>
                     </>
                 )

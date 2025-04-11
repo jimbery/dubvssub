@@ -16,8 +16,7 @@ const SearchPage: React.FC = () => {
         setError('')
 
         try {
-            const res: GetSearchAnimeOutput | Error =
-                await GetSearchAnime(searchTerm)
+            const res = await GetSearchAnime(searchTerm)
 
             if (res instanceof Error)
                 throw new Error('error getting search data')
