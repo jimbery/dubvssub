@@ -1,5 +1,5 @@
 export default async function (malID: number): Promise<AnimeVoteData | Error> {
-    const baseUrl = process.env.REACT_APP_BASE_URL
+    const baseUrl = import.meta.env.VITE_BASE_URL
 
     try {
         const data = await fetch(`${baseUrl}/api/anime-vote-data/${malID}`, {
@@ -8,8 +8,6 @@ export default async function (malID: number): Promise<AnimeVoteData | Error> {
                 'Content-Type': 'application/json',
             },
         })
-
-        console.log(data)
 
         if (!data.ok) {
             throw new Error(JSON.stringify(await data.text()))
