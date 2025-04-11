@@ -27,8 +27,8 @@
         "vitest": "^1.6.0"
     },
     "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
+        "start": "vite",
+        "build": "vite build",
         "test": "vitest",
         "eject": "react-scripts eject",
         "lint": "npx prettier -w . && npx eslint --fix --ext .ts,.tsx .",
