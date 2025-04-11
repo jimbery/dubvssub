@@ -2,7 +2,7 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import Results from './Results'
 import { describe, test, expect } from 'vitest'
-import '@testing-library/jest-dom/vitest' // Add this line
+import '@testing-library/jest-dom/vitest'
 
 /**
  * @vitest-environment jsdom
