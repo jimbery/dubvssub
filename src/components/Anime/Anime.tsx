@@ -76,7 +76,6 @@ export const Anime = () => {
                                     <div className="streamingLogos">
                                         {animeData.Streaming.map(
                                             (stream, index) => {
-                                                // Check if the provider is Netflix or Crunchyroll
                                                 if (
                                                     stream.Name ===
                                                         'Crunchyroll' ||

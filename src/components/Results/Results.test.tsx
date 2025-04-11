@@ -1,7 +1,12 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import Results from './Results'
+import { describe, test, expect } from 'vitest'
+import '@testing-library/jest-dom/vitest' // Add this line
 
+/**
+ * @vitest-environment jsdom
+ */
 describe('Results Component', () => {
     const mockSearchResults = [
         {
@@ -33,7 +38,7 @@ describe('Results Component', () => {
         render(
             <Results searchResults={[]} hasSearched={true} loading={false} />,
         )
-        expect(screen.getByText('Loading')).toBeInTheDocument()
+        expect(screen.queryByText('Loading')).not.toBeInTheDocument()
         expect(screen.getByText('No results found.')).toBeInTheDocument()
     })
 
@@ -46,31 +51,24 @@ describe('Results Component', () => {
             />,
         )
 
-        // Check if each result is rendered
         mockSearchResults.forEach((result) => {
             expect(screen.getByText(result.Title)).toBeInTheDocument()
             expect(screen.getByAltText(result.Title)).toBeInTheDocument()
             expect(screen.getByText(result.Synopsis)).toBeInTheDocument()
-        })
 
-        // Check if the links are correct
-        mockSearchResults.forEach((result) => {
             const link = screen.getByText(result.Title).closest('a')
             expect(link).toHaveAttribute('href', `/anime/${result.MalID}`)
         })
     })
 
     test('renders nothing if hasSearched is false', () => {
-        render(
+        const { container } = render(
             <Results
                 searchResults={mockSearchResults}
                 hasSearched={false}
                 loading={false}
             />,
         )
-        expect(screen.queryByText('Loading...')).not.toBeInTheDocument()
-        expect(
-            screen.queryByText(mockSearchResults[0].Title),
-        ).not.toBeInTheDocument()
+        expect(container.firstChild).toBeEmptyDOMElement()
     })
 })
