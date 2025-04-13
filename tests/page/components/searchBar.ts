@@ -12,7 +12,7 @@ export class SearchBar {
         this.page = page
 
         // components
-        this.searchBar = page.getByTestId('search')
+        this.searchBar = page.getByTestId('searchField')
         this.searchButton = page.getByTestId('searchButton')
 
         // banner icon
