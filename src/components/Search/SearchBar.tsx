@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './SearchBar.css'
-import logoBanner from '../../assets/dubvsubbanner.bmp'
-import icon from '../../assets/dubvsubicon.bmp'
+import logoBanner from '../../assets/dubvsubbanner.webp'
+import icon from '../../assets/dubvsubicon.webp'
 import { useParams } from 'react-router'
 
 interface SearchProps {
