@@ -19,7 +19,7 @@ const DubVsSubVote: React.FC<DubVsSubVoteProps> = ({ malId }) => {
     useEffect(() => {
         const fetchVotes = async () => {
             const malID = Number(window.location.pathname.split('/').pop())
-            console.log(malID)
+
             const voteData = await GetAnimeVoteData(malID)
             if (voteData instanceof Error) {
                 setResults({ sub: 1, dub: 1 })
