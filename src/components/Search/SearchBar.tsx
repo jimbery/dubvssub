@@ -37,11 +37,16 @@ export const Search: React.FC<SearchProps> = ({ setIsTop }) => {
                 </div>
 
                 {/* Search Bar Section */}
-                <form onSubmit={search} role="search" className="search-bar">
+                <form
+                    onSubmit={search}
+                    role="search"
+                    className="search-bar"
+                    data-testid="searchBar"
+                >
                     <label htmlFor="search">Search</label>
                     <input
                         id="search"
-                        data-testid="search"
+                        data-testid="searchField"
                         type="search"
                         placeholder="Search for anime..."
                         onChange={(e) => setSearchInput(e.target.value)}
