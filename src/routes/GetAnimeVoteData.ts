@@ -19,7 +19,7 @@ export default async function (malID: number): Promise<AnimeVoteData | Error> {
     }
 }
 
-type AnimeVoteData = {
+export type AnimeVoteData = {
     id: number
     Name: string
     DubVote: number
