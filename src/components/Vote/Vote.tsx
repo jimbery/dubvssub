@@ -67,31 +67,44 @@ const DubVsSubVote: React.FC<DubVsSubVoteProps> = ({ malId }) => {
     return (
         <div className="vote-container full-width">
             {errorMessage && (
-                <div className="error-message">{errorMessage}</div>
+                <div className="error-message" data-testid="errorMessage">
+                    {errorMessage}
+                </div>
             )}
-            <div className="titleBar">
-                <h1 className="voteTitle">Vote </h1>
+            <div className="titleBar" data-testid="titleBar">
+                <h1 className="voteTitle" data-testid="voteTitle">
+                    Vote{' '}
+                </h1>
             </div>
 
             {/* Voting Section */}
             {!isVoted && (
                 <>
-                    <div className="make-vote">
-                        <div className="vote-options">
+                    <div className="make-vote" data-testid="voteContainer">
+                        <div
+                            className="vote-options"
+                            data-testid="voteOptionsContainer"
+                        >
                             <button
                                 onClick={() => setVoteType('sub')}
                                 className={`sub ${voteType === 'sub' ? 'selected' : ''}`}
+                                data-testid="subButton"
                             >
                                 SUB
                             </button>
                             <button
                                 onClick={() => setVoteType('dub')}
                                 className={`dub ${voteType === 'dub' ? 'selected' : ''}`}
+                                data-testid="dubButton"
                             >
                                 DUB
                             </button>
                         </div>
-                        <button onClick={handleVote} className="vote-button">
+                        <button
+                            onClick={handleVote}
+                            className="vote-button"
+                            data-testid="voteButton"
+                        >
                             Submit Vote
                         </button>
                     </div>
@@ -99,17 +112,19 @@ const DubVsSubVote: React.FC<DubVsSubVoteProps> = ({ malId }) => {
             )}
 
             {/* Results Always Visible */}
-            <div className="vote-results">
-                <div className="bar-chart">
+            <div className="vote-results" data-testid="voteResults">
+                <div className="bar-chart" data-testid="barChart">
                     <div
                         className="bar sub-bar"
                         style={{ width: `${subPercentage}%` }}
+                        data-testid="subPercentageBar"
                     >
                         SUB
                     </div>
                     <div
                         className="bar dub-bar"
                         style={{ width: `${dubPercentage}%` }}
+                        data-testid="dubPercentageBar"
                     >
                         DUB
                     </div>
