@@ -18,9 +18,15 @@ const SearchPage: React.FC = () => {
         try {
             const res = await GetSearchAnime(searchTerm)
 
-            if (res instanceof Error)
+            if (res instanceof Error) {
+                setError('error getting search data')
                 throw new Error('error getting search data')
-            if (!res.Data) throw new Error('no search results returned')
+            }
+
+            if (!res.Data || res.Pagination.Count === 0) {
+                setError('no search results returned')
+                throw new Error('error getting search data')
+            }
             setResults(res.Data)
         } catch (err) {
             setError(`fetching results ${JSON.stringify(err)}`)
