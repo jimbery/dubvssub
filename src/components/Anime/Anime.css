@@ -52,7 +52,7 @@
     margin-bottom: 15px;
 }
 
-.beans {
+.metadata {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;

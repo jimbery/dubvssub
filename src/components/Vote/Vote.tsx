@@ -7,26 +7,28 @@ interface DubVsSubVoteProps {
     malId: number
 }
 
+interface VoteResults {
+    sub: number
+    dub: number
+}
+
 const DubVsSubVote: React.FC<DubVsSubVoteProps> = ({ malId }) => {
     const [voteType, setVoteType] = useState<'sub' | 'dub' | null>(null)
     const [isVoted, setIsVoted] = useState<boolean>(false)
     const [errorMessage, setErrorMessage] = useState<string>('')
-    const [results, setResults] = useState<{ sub: number; dub: number }>({
-        sub: 0,
-        dub: 0,
-    })
+    const [results, setResults] = useState<VoteResults>({ sub: 0, dub: 0 })
 
     useEffect(() => {
         const fetchVotes = async () => {
             const malID = Number(window.location.pathname.split('/').pop())
-
             const voteData = await GetAnimeVoteData(malID)
+
             if (voteData instanceof Error) {
                 setResults({ sub: 1, dub: 1 })
                 return
             }
-            const results = { sub: voteData.SubVote, dub: voteData.DubVote }
-            setResults(results)
+
+            setResults({ sub: voteData.SubVote, dub: voteData.DubVote })
         }
 
         fetchVotes()
@@ -47,11 +49,7 @@ const DubVsSubVote: React.FC<DubVsSubVoteProps> = ({ malId }) => {
                 return
             }
 
-            setResults((prev) => ({
-                ...prev,
-                [voteType]: prev[voteType] + 1,
-            }))
-
+            setResults((prev) => ({ ...prev, [voteType]: prev[voteType] + 1 }))
             setIsVoted(true)
             setErrorMessage('')
         } catch (error) {
@@ -64,72 +62,83 @@ const DubVsSubVote: React.FC<DubVsSubVoteProps> = ({ malId }) => {
     const subPercentage = totalVotes ? (results.sub / totalVotes) * 100 : 50
     const dubPercentage = totalVotes ? (results.dub / totalVotes) * 100 : 50
 
+    const renderError = () =>
+        errorMessage && (
+            <div className="error-message" data-testid="errorMessage">
+                {errorMessage}
+            </div>
+        )
+
+    const renderVotingOptions = () => (
+        <div className="vote-options" data-testid="voteOptionsContainer">
+            <button
+                onClick={() => setVoteType('sub')}
+                className={`sub ${voteType === 'sub' ? 'selected' : ''}`}
+                data-testid="subButton"
+            >
+                SUB
+            </button>
+            <button
+                onClick={() => setVoteType('dub')}
+                className={`dub ${voteType === 'dub' ? 'selected' : ''}`}
+                data-testid="dubButton"
+            >
+                DUB
+            </button>
+        </div>
+    )
+
+    const renderVotingSection = () =>
+        !isVoted && (
+            <div className="make-vote" data-testid="voteContainer">
+                {renderVotingOptions()}
+                <button
+                    onClick={handleVote}
+                    className="vote-button"
+                    data-testid="voteButton"
+                >
+                    Submit Vote
+                </button>
+            </div>
+        )
+
+    const renderResultsBar = () => (
+        <div className="bar-chart" data-testid="barChart">
+            <div
+                className="bar sub-bar"
+                style={{ width: `${subPercentage}%` }}
+                data-testid="subPercentageBar"
+            >
+                SUB
+            </div>
+            <div
+                className="bar dub-bar"
+                style={{ width: `${dubPercentage}%` }}
+                data-testid="dubPercentageBar"
+            >
+                DUB
+            </div>
+        </div>
+    )
+
+    const renderResultsSection = () => (
+        <div className="vote-results" data-testid="voteResults">
+            {renderResultsBar()}
+        </div>
+    )
+
     return (
         <div className="vote-container full-width">
-            {errorMessage && (
-                <div className="error-message" data-testid="errorMessage">
-                    {errorMessage}
-                </div>
-            )}
+            {renderError()}
+
             <div className="titleBar" data-testid="titleBar">
                 <h1 className="voteTitle" data-testid="voteTitle">
-                    Vote{' '}
+                    Vote
                 </h1>
             </div>
 
-            {/* Voting Section */}
-            {!isVoted && (
-                <>
-                    <div className="make-vote" data-testid="voteContainer">
-                        <div
-                            className="vote-options"
-                            data-testid="voteOptionsContainer"
-                        >
-                            <button
-                                onClick={() => setVoteType('sub')}
-                                className={`sub ${voteType === 'sub' ? 'selected' : ''}`}
-                                data-testid="subButton"
-                            >
-                                SUB
-                            </button>
-                            <button
-                                onClick={() => setVoteType('dub')}
-                                className={`dub ${voteType === 'dub' ? 'selected' : ''}`}
-                                data-testid="dubButton"
-                            >
-                                DUB
-                            </button>
-                        </div>
-                        <button
-                            onClick={handleVote}
-                            className="vote-button"
-                            data-testid="voteButton"
-                        >
-                            Submit Vote
-                        </button>
-                    </div>
-                </>
-            )}
-
-            {/* Results Always Visible */}
-            <div className="vote-results" data-testid="voteResults">
-                <div className="bar-chart" data-testid="barChart">
-                    <div
-                        className="bar sub-bar"
-                        style={{ width: `${subPercentage}%` }}
-                        data-testid="subPercentageBar"
-                    >
-                        SUB
-                    </div>
-                    <div
-                        className="bar dub-bar"
-                        style={{ width: `${dubPercentage}%` }}
-                        data-testid="dubPercentageBar"
-                    >
-                        DUB
-                    </div>
-                </div>
-            </div>
+            {renderVotingSection()}
+            {renderResultsSection()}
         </div>
     )
 }
