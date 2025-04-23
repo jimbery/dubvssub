@@ -5,6 +5,7 @@ import GetAnime, { GetAnimeOutput } from '../../routes/GetAnime'
 import Crunchyroll from '../../assets/crunchyroll.png'
 import Netflix from '../../assets/netflix.png'
 import DubVsSubVote from '../Vote/Vote'
+import { Helmet } from 'react-helmet'
 
 interface AnimeProps {
     id: string
@@ -90,6 +91,14 @@ export const Anime: React.FC<AnimeProps> = ({ id }) => {
 
         return (
             <>
+                <Helmet>
+                    <title>{animeData.Title} | Dub vs Sub</title>
+                    <meta
+                        name="description"
+                        content={`Compare the dub and sub versions of "${animeData.Title}". ${animeData.Synopsis.slice(0, 100)}...`}
+                    />
+                </Helmet>
+
                 <div className="topBlock" data-testid="topBlock">
                     <h1 className="title" data-testid="title">
                         {animeData.Title}
@@ -109,26 +118,17 @@ export const Anime: React.FC<AnimeProps> = ({ id }) => {
                         {renderGenres()}
 
                         <div className="text" data-testid="text">
-                            <h1
-                                className="synopsisTitle"
-                                data-testid="synopsisTitle"
-                            >
+                            <h1 className="synopsisTitle" data-testid="synopsisTitle">
                                 Synopsis
                             </h1>
                             <h2 className="synopsis" data-testid="synopsis">
                                 {animeData.Synopsis}
                             </h2>
 
-                            <h1
-                                className="streamingTitle"
-                                data-testid="streamingTitle"
-                            >
+                            <h1 className="streamingTitle" data-testid="streamingTitle">
                                 Where to watch...
                             </h1>
-                            <div
-                                className="streamingLogos"
-                                data-testid="streamingLogos"
-                            >
+                            <div className="streamingLogos" data-testid="streamingLogos">
                                 {animeData.Streaming.map(renderStreamingLogo)}
                             </div>
                         </div>
