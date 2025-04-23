@@ -41,7 +41,7 @@ const SearchPage: React.FC = () => {
         return params.get(param)
     }
 
-    const searchTerm = getQueryParameter('q') ?? ''
+    const searchTerm = getQueryParameter('q') ?? 'hunter x hunter'
 
     useEffect(() => {
         if (searchTerm) {
