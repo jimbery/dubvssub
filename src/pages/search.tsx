@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { Search } from '../components/Search/SearchBar' // Adjust path as necessary
+import { Helmet } from 'react-helmet'
+import { useLocation } from 'react-router'
+import { Search } from '../components/Search/SearchBar'
 import GetSearchAnime, { GetSearchAnimeOutput } from '../routes/GetSearchAnime'
 import Results from '../components/Results/Results'
-import { useLocation } from 'react-router'
 
 const SearchPage: React.FC = () => {
     const [loading, setLoading] = useState(false)
@@ -40,8 +41,9 @@ const SearchPage: React.FC = () => {
         return params.get(param)
     }
 
+    const searchTerm = getQueryParameter('q') ?? ''
+
     useEffect(() => {
-        const searchTerm = getQueryParameter('q')
         if (searchTerm) {
             handleSearch(searchTerm)
         }
@@ -49,13 +51,25 @@ const SearchPage: React.FC = () => {
 
     return (
         <>
-            <Search setIsTop={true}></Search>
+            <Helmet>
+                <title>{searchTerm ? `Search results for "${searchTerm}"` : 'Search'} | Dub vs Sub</title>
+                <meta
+                    name="description"
+                    content={
+                        searchTerm
+                            ? `Explore dub vs sub comparisons for anime titles matching "${searchTerm}". Find out which version fans prefer.`
+                            : 'Search for your favourite anime and see how the dub and sub versions compare.'
+                    }
+                />
+            </Helmet>
+
+            <Search setIsTop={true} />
             <Results
                 searchResults={results}
                 hasSearched={!!results}
                 loading={loading}
                 error={error}
-            ></Results>
+            />
         </>
     )
 }
