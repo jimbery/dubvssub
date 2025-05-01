@@ -37,7 +37,7 @@
     "scripts": {
         "start": "vite",
         "build": "vite build",
-        "postbuild": "node scripts/generateSitemap.js",
+        "postbuild": "node scripts/generateSitemap.mjs",
         "test": "vitest",
         "eject": "react-scripts eject",
         "lint": "npx prettier -w . && npx eslint --fix --ext .ts,.tsx .",
