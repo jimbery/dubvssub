@@ -14,6 +14,17 @@ if (rootElement) {
     const root = ReactDOM.createRoot(rootElement)
 
     root.render(
+        
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YC7GN03HQ7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YC7GN03HQ7');
+</script>
+
         <React.StrictMode>
             <Router>
                 <Routes>
