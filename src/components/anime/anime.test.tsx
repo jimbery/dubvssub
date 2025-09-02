@@ -6,7 +6,7 @@ import '@testing-library/jest-dom/vitest'
 import { GetAnimeOutput } from '../../api/get-anime'
 import * as GetAnime from '../../api/get-anime'
 
-vi.mock('../../routes/GetAnime', () => ({
+vi.mock('../../routes/get-anime', () => ({
     default: vi.fn(),
     __esModule: true,
 }))
