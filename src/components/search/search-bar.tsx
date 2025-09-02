@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import './SearchBar.css'
+import './search-bar.css'
 import logoBanner from '../../assets/dubvsubbanner.webp'
 import icon from '../../assets/dubvsubicon.webp'
 import { useParams } from 'react-router'

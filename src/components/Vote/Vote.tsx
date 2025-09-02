@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import addVote from '../../api/add-vote'
-import './Vote.css'
+import './vote.css'
 import GetAnimeVoteData from '../../api/get-anime-vote-data'
 
 interface DubVsSubVoteProps {

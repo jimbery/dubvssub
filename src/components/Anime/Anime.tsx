@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import './Anime.css'
-import '../Results/Results.css'
+import './anime.css'
+import '../results/results.css'
 import GetAnime, { GetAnimeOutput } from '../../api/get-anime'
 import Crunchyroll from '../../assets/crunchyroll.png'
 import Netflix from '../../assets/netflix.png'
