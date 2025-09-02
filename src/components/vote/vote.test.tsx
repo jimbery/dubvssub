@@ -1,6 +1,6 @@
 import React, { act } from 'react'
 import { render, screen, waitFor } from '@testing-library/react'
-import DubVsSubVote from './vote1'
+import DubVsSubVote from './vote'
 import { describe, test, expect, vi, beforeEach } from 'vitest'
 import '@testing-library/jest-dom/vitest'
 import { AnimeVoteData } from '../../api/get-anime-vote-data'

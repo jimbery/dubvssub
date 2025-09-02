@@ -4,7 +4,7 @@ import '../results/results.css'
 import GetAnime, { GetAnimeOutput } from '../../api/get-anime'
 import Crunchyroll from '../../assets/crunchyroll.png'
 import Netflix from '../../assets/netflix.png'
-import DubVsSubVote from '../vote/vote1'
+import DubVsSubVote from '../vote/vote'
 import { Helmet } from 'react-helmet'
 
 interface AnimeProps {

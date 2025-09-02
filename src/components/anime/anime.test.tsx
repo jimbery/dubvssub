@@ -1,6 +1,6 @@
 import React from 'react'
 import { act, render, screen } from '@testing-library/react'
-import Anime from './anime1'
+import Anime from './anime'
 import { describe, test, expect, vi } from 'vitest'
 import '@testing-library/jest-dom/vitest'
 import { GetAnimeOutput } from '../../api/get-anime'
