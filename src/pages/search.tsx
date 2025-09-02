@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet'
 import { useLocation } from 'react-router'
 import { Search } from '../components/search/search-bar'
 import GetSearchAnime, { GetSearchAnimeOutput } from '../api/get-search-anime'
-import Results from '../components/results/results'
+import Results from '../components/results/results1'
 
 const SearchPage: React.FC = () => {
     const [loading, setLoading] = useState(false)
