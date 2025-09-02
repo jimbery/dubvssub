@@ -7,12 +7,12 @@ import { AnimeVoteData } from '../../api/get-anime-vote-data'
 import * as GetAnimeVoteData from '../../api/get-anime-vote-data'
 import * as AddVote from '../../api/add-vote'
 
-vi.mock('../../routes/get-anime-vote-data', () => ({
+vi.mock('../../api/get-anime-vote-data', () => ({
     default: vi.fn(),
     __esModule: true,
 }))
 
-vi.mock('../../routes/add-vote', () => ({
+vi.mock('../../api/add-vote', () => ({
     default: vi.fn(),
     __esModule: true,
 }))
