@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet'
 import { useLocation } from 'react-router'
-import { Search } from '../components/Search/SearchBar'
-import GetSearchAnime, { GetSearchAnimeOutput } from '../routes/GetSearchAnime'
-import Results from '../components/Results/Results'
+import { Search } from '../components/search/search-bar'
+import GetSearchAnime, { GetSearchAnimeOutput } from '../api/get-search-anime'
+import Results from '../components/results/results'
 
 const SearchPage: React.FC = () => {
     const [loading, setLoading] = useState(false)
@@ -52,7 +52,12 @@ const SearchPage: React.FC = () => {
     return (
         <>
             <Helmet>
-                <title>{searchTerm ? `Search results for "${searchTerm}"` : 'Search'} | Dub vs Sub</title>
+                <title>
+                    {searchTerm
+                        ? `Search results for "${searchTerm}"`
+                        : 'Search'}{' '}
+                    | Dub vs Sub
+                </title>
                 <meta
                     name="description"
                     content={

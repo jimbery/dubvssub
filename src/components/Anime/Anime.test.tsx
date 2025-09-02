@@ -1,10 +1,10 @@
 import React from 'react'
 import { act, render, screen } from '@testing-library/react'
-import Anime from './Anime'
+import Anime from './anime'
 import { describe, test, expect, vi } from 'vitest'
 import '@testing-library/jest-dom/vitest'
-import { GetAnimeOutput } from '../../routes/GetAnime'
-import * as GetAnime from '../../routes/GetAnime'
+import { GetAnimeOutput } from '../../api/get-anime'
+import * as GetAnime from '../../api/get-anime'
 
 vi.mock('../../routes/GetAnime', () => ({
     default: vi.fn(),

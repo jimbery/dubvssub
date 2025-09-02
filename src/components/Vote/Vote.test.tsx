@@ -1,11 +1,11 @@
 import React, { act } from 'react'
 import { render, screen, waitFor } from '@testing-library/react'
-import DubVsSubVote from './Vote'
+import DubVsSubVote from './vote'
 import { describe, test, expect, vi, beforeEach } from 'vitest'
 import '@testing-library/jest-dom/vitest'
-import { AnimeVoteData } from '../../routes/GetAnimeVoteData'
-import * as GetAnimeVoteData from '../../routes/GetAnimeVoteData'
-import * as AddVote from '../../routes/AddVote'
+import { AnimeVoteData } from '../../api/get-anime-vote-data'
+import * as GetAnimeVoteData from '../../api/get-anime-vote-data'
+import * as AddVote from '../../api/add-vote'
 
 vi.mock('../../routes/GetAnimeVoteData', () => ({
     default: vi.fn(),

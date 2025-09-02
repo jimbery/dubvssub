@@ -1,6 +1,6 @@
 import React from 'react'
 import { fireEvent, render, screen } from '@testing-library/react'
-import { Search } from './SearchBar'
+import { Search } from './search-bar'
 import { describe, test, expect } from 'vitest'
 import '@testing-library/jest-dom/vitest'
 const setup = (setIsTop: boolean) => {

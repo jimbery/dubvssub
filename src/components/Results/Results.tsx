@@ -1,5 +1,5 @@
 import React from 'react'
-import { GetSearchAnimeOutput } from '../../routes/GetSearchAnime'
+import { GetSearchAnimeOutput } from '../../api/get-search-anime'
 
 interface ResultsProps {
     searchResults: GetSearchAnimeOutput['Data'] | undefined

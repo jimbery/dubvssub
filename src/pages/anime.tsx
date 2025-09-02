@@ -1,7 +1,7 @@
 import React from 'react'
-import { Search } from '../components/Search/SearchBar'
+import { Search } from '../components/search/search-bar'
 import { useParams } from 'react-router'
-import Anime from '../components/Anime/Anime'
+import Anime from '../components/anime/anime'
 
 const AnimePage: React.FC = () => {
     const { id } = useParams<{ id: string }>()

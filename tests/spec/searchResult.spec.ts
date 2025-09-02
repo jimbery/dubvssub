@@ -1,6 +1,6 @@
 import { test } from '@playwright/test'
-import { SearchResult } from '../page/searchResult'
-import { GetSearchData } from '../data/search/GetSearchData'
+import { SearchResult } from '../page/search-results'
+import { GetSearchData } from '../data/search/get-search-data'
 
 const searchTerms = ['hunter x hunter', 'naruto', 'one piece']
 

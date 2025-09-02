@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test'
 import { HomePage } from '../page/home'
-import GetLangClass from '../util/GetLangClass'
-import { SearchBar } from '../page/components/searchBar'
-import { SearchResult } from '../page/searchResult'
+import GetLangClass from '../util/get-lang-class'
+import { SearchBar } from '../page/components/search-bar'
+import { SearchResult } from '../page/search-results'
 
 test('Home page loads', async ({ page }) => {
     const home = new HomePage(page)

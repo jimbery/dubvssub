@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import './Anime.css'
 import '../Results/Results.css'
-import GetAnime, { GetAnimeOutput } from '../../routes/GetAnime'
+import GetAnime, { GetAnimeOutput } from '../../api/get-anime'
 import Crunchyroll from '../../assets/crunchyroll.png'
 import Netflix from '../../assets/netflix.png'
-import DubVsSubVote from '../Vote/Vote'
+import DubVsSubVote from '../vote/vote'
 import { Helmet } from 'react-helmet'
 
 interface AnimeProps {
@@ -118,17 +118,26 @@ export const Anime: React.FC<AnimeProps> = ({ id }) => {
                         {renderGenres()}
 
                         <div className="text" data-testid="text">
-                            <h1 className="synopsisTitle" data-testid="synopsisTitle">
+                            <h1
+                                className="synopsisTitle"
+                                data-testid="synopsisTitle"
+                            >
                                 Synopsis
                             </h1>
                             <h2 className="synopsis" data-testid="synopsis">
                                 {animeData.Synopsis}
                             </h2>
 
-                            <h1 className="streamingTitle" data-testid="streamingTitle">
+                            <h1
+                                className="streamingTitle"
+                                data-testid="streamingTitle"
+                            >
                                 Where to watch...
                             </h1>
-                            <div className="streamingLogos" data-testid="streamingLogos">
+                            <div
+                                className="streamingLogos"
+                                data-testid="streamingLogos"
+                            >
                                 {animeData.Streaming.map(renderStreamingLogo)}
                             </div>
                         </div>

@@ -1,6 +1,6 @@
 import { Locator, Page, expect } from '@playwright/test'
-import { GetSearchData } from '../data/search/GetSearchData'
-import { GetSearchAnimeOutput } from '../../src/routes/GetSearchAnime'
+import { GetSearchData } from '../data/search/get-search-data'
+import { GetSearchAnimeOutput } from '../../src/routes/get-search-anime'
 
 export class SearchResult {
     readonly page: Page

@@ -1,7 +1,7 @@
-import { HunterXHunter } from './HunterXHunter'
-import { GetSearchAnimeOutput } from '../../../src/routes/GetSearchAnime'
+import { HunterXHunter } from './hunter-x-hunter'
+import { GetSearchAnimeOutput } from '../../../src/api/get-search-anime'
 import { Naruto } from './naruto'
-import { OnePiece } from './onePiece'
+import { OnePiece } from './one-piece'
 
 export const GetSearchData: Record<string, GetSearchAnimeOutput> = {
     'hunter x hunter': HunterXHunter,

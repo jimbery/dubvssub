@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import addVote from '../../routes/AddVote'
+import addVote from '../../api/add-vote'
 import './Vote.css'
-import GetAnimeVoteData from '../../routes/GetAnimeVoteData'
+import GetAnimeVoteData from '../../api/get-anime-vote-data'
 
 interface DubVsSubVoteProps {
     malId: number
